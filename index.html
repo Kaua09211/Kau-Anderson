@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Loja virtual demonstrativa com busca, categorias e carrinho de compras.">
+  <title>Amazonia Store | Loja virtual</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="topline">Frete grátis em compras selecionadas • Ofertas especiais todos os dias</div>
+  <header class="header">
+    <a class="logo" href="#" aria-label="Página inicial">amaz<span>onia</span><small>store</small></a>
+    <div class="delivery"><span class="pin">⌖</span><div><small>Entregar em</small><strong>Seu endereço</strong></div></div>
+    <form class="search" id="searchForm">
+      <select id="categorySelect" aria-label="Categoria">
+        <option value="Todos">Todas</option>
+        <option value="Tecnologia">Tecnologia</option><option value="Casa">Casa</option>
+        <option value="Moda">Moda</option><option value="Esportes">Esportes</option>
+      </select>
+      <input id="searchInput" type="search" placeholder="Buscar produtos..." aria-label="Buscar produtos">
+      <button type="submit" aria-label="Pesquisar">⌕</button>
+    </form>
+    <button class="header-link account" id="accountBtn"><small>Olá, visitante</small><strong>Minha conta</strong></button>
+    <button class="header-link orders" id="ordersBtn"><small>Seus</small><strong>pedidos</strong></button>
+    <button class="cart-button" id="cartToggle" aria-label="Abrir carrinho">🛒 <span>Carrinho</span><b id="cartCount">0</b></button>
+  </header>
+  <nav class="nav">
+    <button id="allCategories">☰ <strong>Todas as categorias</strong></button>
+    <a href="#products" data-filter="Todos">Ofertas do dia</a><a href="#products" data-filter="Tecnologia">Tecnologia</a>
+    <a href="#products" data-filter="Casa">Casa</a><a href="#products" data-filter="Moda">Moda</a>
+    <a href="#products" data-filter="Esportes">Esportes</a><a href="#benefits">Atendimento</a>
+  </nav>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">SELEÇÃO DA SEMANA</span>
+        <h1>Pequenas escolhas.<br><em>Grandes descobertas.</em></h1>
+        <p>Encontre tecnologia, casa, moda e muito mais em um só lugar.</p>
+        <a class="primary-button" href="#products">Explorar produtos <span>→</span></a>
+      </div>
+      <div class="hero-art" aria-label="Ilustração de sacolas de compras">
+        <div class="sun"></div><div class="orb orb-one"></div><div class="orb orb-two"></div>
+        <div class="bag bag-back"><i></i></div><div class="bag bag-front"><i></i><b>✦</b></div>
+        <div class="spark spark-a">✦</div><div class="spark spark-b">✧</div>
+        <div class="hero-tag">DESCUBRA<br><strong>algo novo</strong></div>
+      </div>
+    </section>
+    <section class="benefits" id="benefits">
+      <div><span class="benefit-icon">↗</span><div><strong>Ofertas especiais</strong><small>Novidades toda semana</small></div></div>
+      <div><span class="benefit-icon">♧</span><div><strong>Compra tranquila</strong><small>Experiência simples e segura</small></div></div>
+      <div><span class="benefit-icon">⌁</span><div><strong>Entrega prática</strong><small>Acompanhe seus pedidos</small></div></div>
+    </section>
+    <section class="products-section" id="products">
+      <div class="section-heading"><div><span class="eyebrow">ESCOLHIDOS PARA VOCÊ</span><h2>Produtos em destaque</h2></div>
+        <div class="sort-wrap"><label for="sortSelect">Ordenar:</label><select id="sortSelect"><option value="featured">Recomendados</option><option value="low">Menor preço</option><option value="high">Maior preço</option></select></div>
+      </div>
+      <div class="chips" id="chips">
+        <button class="chip active" data-filter="Todos">Todos</button><button class="chip" data-filter="Tecnologia">Tecnologia</button>
+        <button class="chip" data-filter="Casa">Casa</button><button class="chip" data-filter="Moda">Moda</button><button class="chip" data-filter="Esportes">Esportes</button>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <p class="empty-state hidden" id="emptyState">Nenhum produto encontrado. Tente outra busca.</p>
+    </section>
+    <section class="newsletter">
+      <div><span class="eyebrow">FIQUE POR DENTRO</span><h2>Boas descobertas no seu e-mail.</h2><p>Receba novidades e ofertas da nossa loja demonstrativa.</p></div>
+      <form id="newsletterForm"><input type="email" id="emailInput" placeholder="Seu melhor e-mail" required aria-label="Seu e-mail"><button type="submit">Quero receber →</button></form>
+    </section>
+  </main>
+  <footer><a class="logo footer-logo" href="#">amaz<span>onia</span><small>store</small></a><p>Projeto acadêmico demonstrativo • Desenvolvido com HTML, CSS e JavaScript.</p><a href="#top" id="backTop">Voltar ao topo ↑</a></footer>
+  <div class="overlay hidden" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Carrinho de compras" aria-hidden="true">
+    <div class="drawer-head"><div><span class="eyebrow">SUA SACOLA</span><h2>Carrinho</h2></div><button id="closeCart" aria-label="Fechar carrinho">✕</button></div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-bottom"><div class="subtotal"><span>Subtotal</span><strong id="subtotal">R$ 0,00</strong></div><small>Frete e descontos calculados na finalização.</small><button class="checkout" id="checkoutBtn">Continuar compra →</button><p class="demo-note">Demonstração acadêmica: nenhum pagamento será realizado.</p></div>
+  </aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
